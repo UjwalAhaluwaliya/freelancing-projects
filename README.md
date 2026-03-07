@@ -110,4 +110,4 @@ federated-learning-platform
 
 # 📬 Contact
 
-GitHub: https://github.com/UjwalAhluwaliya
+GitHub: https://github.com/UjwalAhaluwaliya
