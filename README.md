@@ -109,5 +109,5 @@ federated-learning-platform
 ---
 
 # 📬 Contact
-
+Gmail: ujwalahaluwaliya2005@gmail.com
 GitHub: https://github.com/UjwalAhaluwaliya
