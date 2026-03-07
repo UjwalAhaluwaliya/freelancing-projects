@@ -1,0 +1,802 @@
+[
+  {
+    "project_name": "Project 01 - Supply Chain Visibility",
+    "description": "Initiative focused on supply chain visibility with enterprise process improvements and measurable business outcomes.",
+    "budget": 582867.0,
+    "expected_roi": 22.56,
+    "risk_level": "high",
+    "team_size": 30,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 15,
+    "strategic_alignment_score": 7.88,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 02 - Cybersecurity Hardening",
+    "description": "Initiative focused on cybersecurity hardening with enterprise process improvements and measurable business outcomes.",
+    "budget": 606760.0,
+    "expected_roi": 44.02,
+    "risk_level": "high",
+    "team_size": 19,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 23,
+    "strategic_alignment_score": 8.5,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 03 - Customer Analytics",
+    "description": "Initiative focused on customer analytics with enterprise process improvements and measurable business outcomes.",
+    "budget": 4222778.0,
+    "expected_roi": 19.83,
+    "risk_level": "medium",
+    "team_size": 32,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 8,
+    "strategic_alignment_score": 7.51,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 04 - Hr Digital Workflow",
+    "description": "Initiative focused on HR digital workflow with enterprise process improvements and measurable business outcomes.",
+    "budget": 4140393.0,
+    "expected_roi": 22.74,
+    "risk_level": "medium",
+    "team_size": 31,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 9,
+    "strategic_alignment_score": 6.88,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 05 - Cloud Migration",
+    "description": "Initiative focused on cloud migration with enterprise process improvements and measurable business outcomes.",
+    "budget": 4312712.0,
+    "expected_roi": 30.27,
+    "risk_level": "high",
+    "team_size": 27,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 8,
+    "strategic_alignment_score": 5.48,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 06 - Data Governance",
+    "description": "Initiative focused on data governance with enterprise process improvements and measurable business outcomes.",
+    "budget": 4857885.0,
+    "expected_roi": 40.72,
+    "risk_level": "high",
+    "team_size": 15,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 24,
+    "strategic_alignment_score": 4.36,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 07 - Compliance Modernization",
+    "description": "Initiative focused on compliance modernization with enterprise process improvements and measurable business outcomes.",
+    "budget": 2564288.0,
+    "expected_roi": 11.17,
+    "risk_level": "low",
+    "team_size": 25,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 23,
+    "strategic_alignment_score": 8.21,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 08 - It Service Optimization",
+    "description": "Initiative focused on IT service optimization with enterprise process improvements and measurable business outcomes.",
+    "budget": 4842422.0,
+    "expected_roi": 18.03,
+    "risk_level": "high",
+    "team_size": 28,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 13,
+    "strategic_alignment_score": 6.29,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 09 - Sales Intelligence",
+    "description": "Initiative focused on sales intelligence with enterprise process improvements and measurable business outcomes.",
+    "budget": 2395261.0,
+    "expected_roi": 24.03,
+    "risk_level": "low",
+    "team_size": 11,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 12,
+    "strategic_alignment_score": 7.69,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 10 - Finance Automation",
+    "description": "Initiative focused on finance automation with enterprise process improvements and measurable business outcomes.",
+    "budget": 2270186.0,
+    "expected_roi": 38.31,
+    "risk_level": "medium",
+    "team_size": 27,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 22,
+    "strategic_alignment_score": 5.19,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 11 - Supply Chain Visibility",
+    "description": "Initiative focused on supply chain visibility with enterprise process improvements and measurable business outcomes.",
+    "budget": 2260800.0,
+    "expected_roi": 20.5,
+    "risk_level": "high",
+    "team_size": 12,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 27,
+    "strategic_alignment_score": 7.78,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 12 - Cybersecurity Hardening",
+    "description": "Initiative focused on cybersecurity hardening with enterprise process improvements and measurable business outcomes.",
+    "budget": 827799.0,
+    "expected_roi": 13.0,
+    "risk_level": "high",
+    "team_size": 28,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 4,
+    "strategic_alignment_score": 8.51,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 13 - Customer Analytics",
+    "description": "Initiative focused on customer analytics with enterprise process improvements and measurable business outcomes.",
+    "budget": 2437100.0,
+    "expected_roi": 36.23,
+    "risk_level": "high",
+    "team_size": 18,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 18,
+    "strategic_alignment_score": 6.98,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 14 - Hr Digital Workflow",
+    "description": "Initiative focused on HR digital workflow with enterprise process improvements and measurable business outcomes.",
+    "budget": 828015.0,
+    "expected_roi": 9.58,
+    "risk_level": "medium",
+    "team_size": 30,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 21,
+    "strategic_alignment_score": 6.3,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 15 - Cloud Migration",
+    "description": "Initiative focused on cloud migration with enterprise process improvements and measurable business outcomes.",
+    "budget": 534107.0,
+    "expected_roi": 30.39,
+    "risk_level": "high",
+    "team_size": 21,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 18,
+    "strategic_alignment_score": 6.91,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 16 - Data Governance",
+    "description": "Initiative focused on data governance with enterprise process improvements and measurable business outcomes.",
+    "budget": 1624157.0,
+    "expected_roi": 6.23,
+    "risk_level": "medium",
+    "team_size": 12,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 15,
+    "strategic_alignment_score": 4.5,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 17 - Compliance Modernization",
+    "description": "Initiative focused on compliance modernization with enterprise process improvements and measurable business outcomes.",
+    "budget": 4964428.0,
+    "expected_roi": 14.36,
+    "risk_level": "high",
+    "team_size": 5,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 25,
+    "strategic_alignment_score": 4.97,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 18 - It Service Optimization",
+    "description": "Initiative focused on IT service optimization with enterprise process improvements and measurable business outcomes.",
+    "budget": 1573929.0,
+    "expected_roi": 31.48,
+    "risk_level": "low",
+    "team_size": 34,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 18,
+    "strategic_alignment_score": 8.49,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 19 - Sales Intelligence",
+    "description": "Initiative focused on sales intelligence with enterprise process improvements and measurable business outcomes.",
+    "budget": 2134554.0,
+    "expected_roi": 37.56,
+    "risk_level": "medium",
+    "team_size": 9,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 12,
+    "strategic_alignment_score": 3.16,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 20 - Finance Automation",
+    "description": "Initiative focused on finance automation with enterprise process improvements and measurable business outcomes.",
+    "budget": 586732.0,
+    "expected_roi": 33.89,
+    "risk_level": "high",
+    "team_size": 31,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 16,
+    "strategic_alignment_score": 4.13,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 21 - Supply Chain Visibility",
+    "description": "Initiative focused on supply chain visibility with enterprise process improvements and measurable business outcomes.",
+    "budget": 4699549.0,
+    "expected_roi": 32.85,
+    "risk_level": "low",
+    "team_size": 17,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 16,
+    "strategic_alignment_score": 5.67,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 22 - Cybersecurity Hardening",
+    "description": "Initiative focused on cybersecurity hardening with enterprise process improvements and measurable business outcomes.",
+    "budget": 1612333.0,
+    "expected_roi": 30.21,
+    "risk_level": "medium",
+    "team_size": 14,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 13,
+    "strategic_alignment_score": 3.61,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 23 - Customer Analytics",
+    "description": "Initiative focused on customer analytics with enterprise process improvements and measurable business outcomes.",
+    "budget": 1793877.0,
+    "expected_roi": 41.34,
+    "risk_level": "high",
+    "team_size": 25,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 16,
+    "strategic_alignment_score": 4.86,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 24 - Hr Digital Workflow",
+    "description": "Initiative focused on HR digital workflow with enterprise process improvements and measurable business outcomes.",
+    "budget": 4850505.0,
+    "expected_roi": 36.15,
+    "risk_level": "low",
+    "team_size": 26,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 22,
+    "strategic_alignment_score": 6.15,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 25 - Cloud Migration",
+    "description": "Initiative focused on cloud migration with enterprise process improvements and measurable business outcomes.",
+    "budget": 534379.0,
+    "expected_roi": 41.1,
+    "risk_level": "low",
+    "team_size": 18,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 7,
+    "strategic_alignment_score": 4.42,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 26 - Data Governance",
+    "description": "Initiative focused on data governance with enterprise process improvements and measurable business outcomes.",
+    "budget": 1633889.0,
+    "expected_roi": 28.17,
+    "risk_level": "medium",
+    "team_size": 4,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 8,
+    "strategic_alignment_score": 9.0,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 27 - Compliance Modernization",
+    "description": "Initiative focused on compliance modernization with enterprise process improvements and measurable business outcomes.",
+    "budget": 2539897.0,
+    "expected_roi": 22.28,
+    "risk_level": "high",
+    "team_size": 23,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 12,
+    "strategic_alignment_score": 7.09,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 28 - It Service Optimization",
+    "description": "Initiative focused on IT service optimization with enterprise process improvements and measurable business outcomes.",
+    "budget": 3301756.0,
+    "expected_roi": 8.38,
+    "risk_level": "high",
+    "team_size": 9,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 14,
+    "strategic_alignment_score": 3.29,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 29 - Sales Intelligence",
+    "description": "Initiative focused on sales intelligence with enterprise process improvements and measurable business outcomes.",
+    "budget": 1062892.0,
+    "expected_roi": 10.78,
+    "risk_level": "low",
+    "team_size": 7,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 21,
+    "strategic_alignment_score": 7.11,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 30 - Finance Automation",
+    "description": "Initiative focused on finance automation with enterprise process improvements and measurable business outcomes.",
+    "budget": 977375.0,
+    "expected_roi": 42.0,
+    "risk_level": "high",
+    "team_size": 22,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 19,
+    "strategic_alignment_score": 5.43,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 31 - Supply Chain Visibility",
+    "description": "Initiative focused on supply chain visibility with enterprise process improvements and measurable business outcomes.",
+    "budget": 1579552.0,
+    "expected_roi": 43.34,
+    "risk_level": "low",
+    "team_size": 18,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 14,
+    "strategic_alignment_score": 8.48,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 32 - Cybersecurity Hardening",
+    "description": "Initiative focused on cybersecurity hardening with enterprise process improvements and measurable business outcomes.",
+    "budget": 551240.0,
+    "expected_roi": 24.47,
+    "risk_level": "high",
+    "team_size": 8,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 16,
+    "strategic_alignment_score": 9.56,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 33 - Customer Analytics",
+    "description": "Initiative focused on customer analytics with enterprise process improvements and measurable business outcomes.",
+    "budget": 2779886.0,
+    "expected_roi": 15.68,
+    "risk_level": "medium",
+    "team_size": 14,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 28,
+    "strategic_alignment_score": 6.64,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 34 - Hr Digital Workflow",
+    "description": "Initiative focused on HR digital workflow with enterprise process improvements and measurable business outcomes.",
+    "budget": 2278720.0,
+    "expected_roi": 5.86,
+    "risk_level": "medium",
+    "team_size": 20,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 25,
+    "strategic_alignment_score": 9.27,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 35 - Cloud Migration",
+    "description": "Initiative focused on cloud migration with enterprise process improvements and measurable business outcomes.",
+    "budget": 1615569.0,
+    "expected_roi": 9.34,
+    "risk_level": "medium",
+    "team_size": 24,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 21,
+    "strategic_alignment_score": 4.97,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 36 - Data Governance",
+    "description": "Initiative focused on data governance with enterprise process improvements and measurable business outcomes.",
+    "budget": 3348199.0,
+    "expected_roi": 34.08,
+    "risk_level": "high",
+    "team_size": 23,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 23,
+    "strategic_alignment_score": 3.75,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 37 - Compliance Modernization",
+    "description": "Initiative focused on compliance modernization with enterprise process improvements and measurable business outcomes.",
+    "budget": 4879503.0,
+    "expected_roi": 6.5,
+    "risk_level": "low",
+    "team_size": 21,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 7,
+    "strategic_alignment_score": 5.6,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 38 - It Service Optimization",
+    "description": "Initiative focused on IT service optimization with enterprise process improvements and measurable business outcomes.",
+    "budget": 4174480.0,
+    "expected_roi": 37.33,
+    "risk_level": "high",
+    "team_size": 23,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 12,
+    "strategic_alignment_score": 9.67,
+    "status": "active"
+  },
+  {
+    "project_name": "Project 39 - Sales Intelligence",
+    "description": "Initiative focused on sales intelligence with enterprise process improvements and measurable business outcomes.",
+    "budget": 3166020.0,
+    "expected_roi": 15.24,
+    "risk_level": "medium",
+    "team_size": 33,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 29,
+    "strategic_alignment_score": 4.15,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 40 - Finance Automation",
+    "description": "Initiative focused on finance automation with enterprise process improvements and measurable business outcomes.",
+    "budget": 367816.0,
+    "expected_roi": 22.4,
+    "risk_level": "high",
+    "team_size": 6,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 29,
+    "strategic_alignment_score": 9.24,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 41 - Supply Chain Visibility",
+    "description": "Initiative focused on supply chain visibility with enterprise process improvements and measurable business outcomes.",
+    "budget": 4251367.0,
+    "expected_roi": 40.74,
+    "risk_level": "high",
+    "team_size": 20,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 7,
+    "strategic_alignment_score": 5.21,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 42 - Cybersecurity Hardening",
+    "description": "Initiative focused on cybersecurity hardening with enterprise process improvements and measurable business outcomes.",
+    "budget": 3894260.0,
+    "expected_roi": 31.47,
+    "risk_level": "medium",
+    "team_size": 26,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 13,
+    "strategic_alignment_score": 3.66,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 43 - Customer Analytics",
+    "description": "Initiative focused on customer analytics with enterprise process improvements and measurable business outcomes.",
+    "budget": 1992958.0,
+    "expected_roi": 42.47,
+    "risk_level": "low",
+    "team_size": 11,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 28,
+    "strategic_alignment_score": 3.86,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 44 - Hr Digital Workflow",
+    "description": "Initiative focused on HR digital workflow with enterprise process improvements and measurable business outcomes.",
+    "budget": 4180896.0,
+    "expected_roi": 11.13,
+    "risk_level": "high",
+    "team_size": 26,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 8,
+    "strategic_alignment_score": 7.2,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 45 - Cloud Migration",
+    "description": "Initiative focused on cloud migration with enterprise process improvements and measurable business outcomes.",
+    "budget": 367206.0,
+    "expected_roi": 17.41,
+    "risk_level": "low",
+    "team_size": 28,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 29,
+    "strategic_alignment_score": 9.8,
+    "status": "on_hold"
+  },
+  {
+    "project_name": "Project 46 - Data Governance",
+    "description": "Initiative focused on data governance with enterprise process improvements and measurable business outcomes.",
+    "budget": 2578594.0,
+    "expected_roi": 10.76,
+    "risk_level": "high",
+    "team_size": 12,
+    "technology_stack": [
+      "Java",
+      "Spring",
+      "PostgreSQL"
+    ],
+    "duration": 4,
+    "strategic_alignment_score": 4.61,
+    "status": "proposed"
+  },
+  {
+    "project_name": "Project 47 - Compliance Modernization",
+    "description": "Initiative focused on compliance modernization with enterprise process improvements and measurable business outcomes.",
+    "budget": 237112.0,
+    "expected_roi": 9.87,
+    "risk_level": "high",
+    "team_size": 19,
+    "technology_stack": [
+      "Node.js",
+      "React",
+      "MongoDB"
+    ],
+    "duration": 11,
+    "strategic_alignment_score": 7.86,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 48 - It Service Optimization",
+    "description": "Initiative focused on IT service optimization with enterprise process improvements and measurable business outcomes.",
+    "budget": 2968415.0,
+    "expected_roi": 12.99,
+    "risk_level": "high",
+    "team_size": 6,
+    "technology_stack": [
+      "Python",
+      "FastAPI",
+      "Redis"
+    ],
+    "duration": 24,
+    "strategic_alignment_score": 8.01,
+    "status": "completed"
+  },
+  {
+    "project_name": "Project 49 - Sales Intelligence",
+    "description": "Initiative focused on sales intelligence with enterprise process improvements and measurable business outcomes.",
+    "budget": 4155876.0,
+    "expected_roi": 9.95,
+    "risk_level": "low",
+    "team_size": 32,
+    "technology_stack": [
+      ".NET",
+      "Azure",
+      "SQL Server"
+    ],
+    "duration": 18,
+    "strategic_alignment_score": 5.78,
+    "status": "retired"
+  },
+  {
+    "project_name": "Project 50 - Finance Automation",
+    "description": "Initiative focused on finance automation with enterprise process improvements and measurable business outcomes.",
+    "budget": 1609601.0,
+    "expected_roi": 24.54,
+    "risk_level": "medium",
+    "team_size": 20,
+    "technology_stack": [
+      "Python",
+      "Flask",
+      "MongoDB"
+    ],
+    "duration": 21,
+    "strategic_alignment_score": 9.69,
+    "status": "active"
+  }
+]

@@ -1,0 +1,199 @@
+{
+  "name": "Orbito Resume Shortlist",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "orbito-resume-shortlist",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Resume Shortlist Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        260,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const p = $json?.data;\nif (!p) throw new Error('Missing data payload');\nif (p.event_version !== '1.0') throw new Error('Invalid event_version');\nif (typeof p.threshold !== 'number') throw new Error('Invalid threshold');\nif (!p.analysis || typeof p.analysis.match_score !== 'number') throw new Error('Invalid analysis.match_score');\nif (p.analysis.match_score < 0 || p.analysis.match_score > 100) throw new Error('match_score out of range');\nif (!p.hr_user_id) throw new Error('Missing hr_user_id');\nreturn [{ json: p }];"
+      },
+      "id": "2",
+      "name": "Validate Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json.analysis.match_score}}",
+              "operation": "largerEqual",
+              "value2": "={{$json.threshold}}"
+            }
+          ]
+        }
+      },
+      "id": "3",
+      "name": "Score >= Threshold",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        740,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "shortlisted"
+            },
+            {
+              "name": "message",
+              "value": "Candidate passed threshold. Add your email/task nodes after this set node."
+            }
+          ],
+          "number": [
+            {
+              "name": "match_score",
+              "value": "={{$json.analysis.match_score}}"
+            }
+          ]
+        }
+      },
+      "id": "4",
+      "name": "Shortlist Action Placeholder",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        980,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "skipped"
+            },
+            {
+              "name": "message",
+              "value": "Candidate did not meet threshold."
+            }
+          ],
+          "number": [
+            {
+              "name": "match_score",
+              "value": "={{$json.analysis.match_score}}"
+            }
+          ]
+        }
+      },
+      "id": "5",
+      "name": "Skip Action",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        980,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}",
+        "options": {}
+      },
+      "id": "6",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Resume Shortlist Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Payload": {
+      "main": [
+        [
+          {
+            "node": "Score >= Threshold",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score >= Threshold": {
+      "main": [
+        [
+          {
+            "node": "Shortlist Action Placeholder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Shortlist Action Placeholder": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip Action": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}

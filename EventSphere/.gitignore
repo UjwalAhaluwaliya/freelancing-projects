@@ -1,0 +1,24 @@
+
+node_modules/
+.env
+dist/
+build/
+# Python
+backend/venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/**/__pycache__/
+*.pyc
+
+# Environment variables
+backend/.env
+frontend/frontend/.env.local
+
+# Node
+frontend/frontend/node_modules/
+frontend/frontend/.next/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

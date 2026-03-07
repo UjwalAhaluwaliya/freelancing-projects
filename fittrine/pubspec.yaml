@@ -1,0 +1,63 @@
+name: Fittrine
+description: "Fittrine - Find Your Fitness Partner"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.7
+flutter_native_splash:
+  color: "#1A1443"
+  image: assets/images/fittrine_logo.png
+  android: true
+  ios: true
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Firebase
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.17.9
+  cloud_firestore: ^4.15.9
+  firebase_storage: ^11.6.6
+  firebase_messaging: ^14.7.10
+
+  # Media & Notifications
+  image_picker: ^1.0.5
+  http: ^1.2.0
+  flutter_local_notifications: ^17.0.0
+  flutter_native_splash: ^2.4.7
+  intl: ^0.19.0
+  geolocator: ^10.0.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  flutter_launcher_icons: ^0.13.1
+
+dependency_overrides:
+  flutter_lints: ^6.0.0
+
+# ---------------- FLUTTER LAUNCHER ICON CONFIG ----------------
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/fittrine_logo.png"
+
+# ---------------- FLUTTER CONFIG ----------------
+flutter:
+  uses-material-design: true
+
+
+
+
+  assets:
+    - assets/images/fittrine_logo.png
+    - assets/goals/
+    - assets/workouts/

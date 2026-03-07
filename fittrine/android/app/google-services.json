@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065488195530",
+    "project_id": "fittrine",
+    "storage_bucket": "fittrine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065488195530:android:13f567eaa533daa2b1f933",
+        "android_client_info": {
+          "package_name": "com.example.fittrine_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIW4p6lGPH2mDH2-VxQMMBnZcNlDzmM90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

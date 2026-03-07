@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn();
+      allow create: if isOwner(userId);
+      allow update, delete: if isOwner(userId);
+    }
+
+    match /blocked/{userId}/blockedUsers/{otherUserId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /swipes/{userId}/swipedUsers/{otherUserId} {
+      allow read, write: if signedIn();
+    }
+
+    match /likes/{userId}/likedUsers/{otherUserId} {
+      allow read, write: if signedIn();
+    }
+
+    match /matches/{userId}/matchedUsers/{otherUserId} {
+      allow read, write: if signedIn();
+    }
+
+    match /reports/{reportId} {
+      allow create: if signedIn();
+      allow read: if signedIn();
+      allow update, delete: if false;
+    }
+
+    match /notifications/{notificationId} {
+      allow create: if signedIn();
+      allow read: if signedIn();
+      allow update, delete: if false;
+    }
+
+    match /selfProgress/{userId}/dailyLogs/{logId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /chats/{chatId} {
+      allow read, write: if signedIn();
+
+      match /messages/{messageId} {
+        allow read, write: if signedIn();
+      }
+
+      match /schedule/{scheduleId} {
+        allow read, write: if signedIn();
+      }
+    }
+  }
+}
