@@ -1,3 +1,4 @@
+contact owner for ai and backend files
 # Federated Learning Platform
 
 A privacy-preserving machine learning system where multiple clients collaboratively train models without sharing raw data.
