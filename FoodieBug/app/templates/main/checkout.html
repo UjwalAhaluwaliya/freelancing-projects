@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row pt-4 justify-content-center">
+    <div class="col-md-8 text-center p-5 bg-white shadow-lg rounded-4 border">
+        <h2 class="display-5 fw-bold text-success mb-4 mt-3">Ready to Order? 🚀</h2>
+        <p class="lead text-muted mb-5 px-3">Review your items carefully and click confirm below to place your order securely. We've optimized everything for the fastest checkout!</p>
+        
+        <div class="card p-4 shadow-sm mb-5 bg-light border-0 rounded-4 mx-auto w-75 text-start">
+            <h5 class="fw-bold mb-3 border-bottom pb-2">Order Summary</h5>
+            <ul class="list-unstyled mb-0">
+            {% for item in cart %}
+                <li class="d-flex justify-content-between mb-2 pb-2 mt-2">
+                    <span class="text-dark fw-medium">{{ item.quantity }}x {{ item.name }}</span>
+                    {% set item_total = (item.base_price + item.customizations|map(attribute='price_change')|sum) * item.quantity %}
+                    <span class="text-success fw-bold">₹{{ "%.2f"|format(item_total) }}</span>
+                </li>
+            {% endfor %}
+            </ul>
+            <hr class="text-muted">
+            <h4 class="d-flex justify-content-between text-dark fw-bold mb-0">
+                <span>Total Amount:</span>
+                <span class="text-success">₹{{ "%.2f"|format(total) }}</span>
+            </h4>
+        </div>
+        
+        <form action="{{ url_for('main.checkout') }}" method="POST">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold shadow-lg px-5 py-3 custom-hover-effect override-btn">
+                Confirm & Place Order
+            </button>
+            <a href="{{ url_for('main.view_cart') }}" class="btn btn-outline-secondary btn-lg rounded-pill px-4 py-3 ms-3 fw-bold custom-hover shadow-sm">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row min-vh-100 bg-white p-4 p-md-5 rounded-4 shadow-lg border">
+    <div class="col-12 text-center mb-4">
+        <h2 class="fw-bold text-dark">Live Delivery Routing 📍</h2>
+        <p class="text-muted">Order #{{ order.id }} - Delivery for {{ order.customer.name }}</p>
+        <span class="badge bg-primary fs-6 px-4 py-2 rounded-pill shadow-sm">Status: Out for Delivery</span>
+    </div>
+
+    <div class="col-12 z-0">
+        <!-- Leaflet Map Container -->
+        <div id="deliveryMap" class="rounded-4 shadow-sm border border-light" style="width: 100%; height: 500px; z-index: 1;"></div>
+    </div>
+    
+    <div class="col-12 mt-5 text-center">
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="{{ url_for('delivery.dashboard') }}" class="btn btn-outline-secondary btn-lg rounded-pill fw-bold shadow-sm custom-hover px-5">Back to Dashboard</a>
+            
+            <form action="{{ url_for('delivery.deliver', order_id=order.id) }}" method="POST">
+                <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm px-5" onclick="return confirm('You have reached the customer. Confirm delivery?');">✅ Mark as Delivered</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Map
+        var map = L.map('deliveryMap').setView([19.0760, 72.8777], 13); // Default to Mumbai roughly
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap Demo'
+        }).addTo(map);
+        
+        // Generate stable-random coordinates based on Order ID to simulate locations
+        function seededRandom(min, max, seed) {
+            var x = Math.sin(seed++) * 10000;
+            var rand = x - Math.floor(x);
+            return min + rand * (max - min);
+        }
+
+        var orderId = {{ order.id }};
+        var restLat = 19.0760 + seededRandom(-0.02, 0.02, orderId);
+        var restLng = 72.8777 + seededRandom(-0.02, 0.02, orderId + 1);
+        
+        var custLat = restLat + seededRandom(0.01, 0.05, orderId + 2);
+        var custLng = restLng + seededRandom(0.01, 0.05, orderId + 3);
+
+        // Add markers
+        var restaurantIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3003/3003984.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 38]
+        });
+        
+        var customerIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3180/3180209.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 38]
+        });
+
+        // Current Location marker (simulated delivery guy)
+        var deliveryIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/3063/3063822.png',
+            iconSize: [45, 45],
+            iconAnchor: [22, 22]
+        });
+
+        var restMarker = L.marker([restLat, restLng], {icon: restaurantIcon}).addTo(map)
+            .bindPopup("<b>{{ order.restaurant.name }}</b><br>Pickup").openPopup();
+            
+        var custMarker = L.marker([custLat, custLng], {icon: customerIcon}).addTo(map)
+            .bindPopup("<b>{{ order.customer.name }}</b><br>Dropoff");
+
+        // Calculate a mid-point for the delivery guy
+        var currentLat = restLat + (custLat - restLat) * 0.4;
+        var currentLng = restLng + (custLng - restLng) * 0.4;
+        
+        var dMarker = L.marker([currentLat, currentLng], {icon: deliveryIcon}).addTo(map)
+            .bindPopup("<b>You are here!</b>");
+
+        // Draw an animated routing line between points
+        var latlngs = [
+            [restLat, restLng],
+            [currentLat, currentLng],
+            [custLat, custLng]
+        ];
+        
+        var polyline = L.polyline(latlngs, {color: '#0d6efd', weight: 4, dashArray: '10, 10'}).addTo(map);
+
+        // Fit map bounds to show everything properly
+        map.fitBounds(polyline.getBounds(), {padding: [50, 50]});
+    });
+</script>
+{% endblock %}

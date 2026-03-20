@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="row align-items-center mb-5 hero-section py-5 rounded-4 shadow-sm" style="background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);">
+    <div class="col-md-6 px-5">
+        <h1 class="display-4 fw-bolder mb-3 text-dark">Craving Something <span class="text-primary">Delicious?</span></h1>
+        <p class="lead text-muted mb-4">Discover the best food and drinks in your city. Delivered fast to your door.</p>
+        <a href="#restaurants" class="btn btn-primary btn-lg rounded-pill px-4 py-3 fw-bold shadow-sm custom-btn">Explore Restaurants <i class="ms-2">🍽️</i></a>
+    </div>
+    <div class="col-md-6 text-center">
+        <!-- Add empty div instead of image for cleanliness -->
+        <h1 style="font-size: 10rem;" class="text-primary text-opacity-50">🍔</h1>
+    </div>
+</div>
+
+<h2 class="fw-bold mb-4 text-dark" id="restaurants">Popular Restaurants 🍔</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for restaurant in restaurants %}
+    <div class="col">
+        <a href="{{ url_for('main.restaurant_menu', restaurant_id=restaurant.id) }}" class="text-decoration-none text-dark h-100 placeholder-wave">
+            <div class="card h-100 border-0 shadow-sm rounded-4 restaurant-card overflow-hidden">
+                <div class="d-flex justify-content-center align-items-center bg-light text-primary" style="height: 150px; border-bottom: 1px solid #eee;">
+                    <span class="fs-1">🏪</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-bold fs-4">{{ restaurant.name }}</h5>
+                    <p class="card-text text-muted mb-2"><small>📍 {{ restaurant.location }}</small></p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-medium">Open Now</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% else %}
+    <div class="col-12 text-center py-5">
+        <h4 class="text-muted">No restaurants available yet.</h4>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

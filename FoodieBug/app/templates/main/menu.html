@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row align-items-center mb-5 bg-white p-5 rounded-4 shadow-sm border">
+    <div class="col-md-8">
+        <h1 class="display-5 fw-bold text-dark">{{ restaurant.name }} Menu</h1>
+        <p class="text-muted fs-5 mb-0">📍 {{ restaurant.location }} | 📞 {{ restaurant.contact }}</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <span class="badge bg-danger fs-6 rounded-pill px-4 py-2"><i class="fw-bold">Fast Delivery</i></span>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-5">
+    {% for item in menu_items %}
+    <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 override-card transition-all" style="cursor: pointer;" onclick="openCustomizationModal({{ item.id }})">
+            <div class="row g-0 h-100 align-items-center p-3">
+                <div class="col-12">
+                    <div class="card-body p-0">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h4 class="card-title fw-bold text-dark mb-0 d-flex align-items-center"><span class="fs-4 me-2">🍽️</span>{{ item.name }}</h4>
+                            <span class="fs-5 fw-bold text-success">₹{{ "%.2f"|format(item.base_price) }}</span>
+                        </div>
+                        <p class="card-text text-muted mb-3" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ item.description }}</p>
+                        <button type="button" class="btn btn-outline-primary btn-sm rounded-pill fw-bold px-4 hover-filled">
+                            Add +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12 text-center py-5">
+        <h4 class="text-muted">No items found for this restaurant.</h4>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Customization Modal -->
+<div class="modal fade" id="customizationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header border-bottom-0 pb-0">
+                <h4 class="modal-title fw-bold" id="modalItemName">Item Name</h4>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-2 px-4">
+                <p class="text-muted mb-4" id="modalItemDesc">Description</p>
+                
+                <form id="customizationForm">
+                    <input type="hidden" id="modalItemId" name="item_id">
+                    <div id="customizationsContainer">
+                        <!-- Fetched from JS -->
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center p-4 mt-4 rounded-4 bg-light shadow-sm">
+                        <div class="quantity-controller d-flex align-items-center bg-white rounded-pill px-2 py-1 shadow-sm">
+                            <button type="button" class="btn btn-sm btn-link text-dark shadow-none fw-bold fs-5 text-decoration-none" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" id="itemQuantity" class="form-control form-control-sm border-0 text-center fw-bold fs-5 px-0" value="1" min="1" style="width: 40px; box-shadow: none;" readonly>
+                            <button type="button" class="btn btn-sm btn-link text-dark shadow-none fw-bold fs-5 text-decoration-none" onclick="updateQuantity(1)">+</button>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary btn-lg rounded-pill fw-bold px-5 shadow-sm" onclick="addToCart()">
+                            Add to Cart • ₹<span id="modalTotalPrice">0.00</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row pt-4 justify-content-center mb-5">
+    <div class="col-md-10 bg-white p-5 rounded-4 shadow-sm border text-start">
+        <h2 class="display-6 fw-bold text-dark mb-4 mt-3">My Orders 📦</h2>
+        <p class="lead text-muted mb-5 px-3">View the status of your current and past orders.</p>
+        
+        {% if orders %}
+        <div class="accordion" id="ordersAccordion">
+            {% for order in orders %}
+            <div class="accordion-item border-0 shadow-sm rounded-4 mb-3 overflow-hidden">
+                <h2 class="accordion-header" id="heading{{ order.id }}">
+                    <button class="accordion-button {% if not loop.first %}collapsed{% endif %} fw-bold fs-5 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="true" aria-controls="collapse{{ order.id }}">
+                        Order #{{ order.id }} -  
+                        <span class="badge {% if order.status == 'Pending' %}bg-warning text-dark{% elif order.status == 'PAID' %}bg-info text-white{% elif order.status == 'Preparing' %}bg-primary{% else %}bg-success{% endif %} ms-2 rounded-pill px-3 py-2 fw-medium">
+                            {{ order.status }}
+                        </span>
+                        <span class="ms-auto fw-medium fs-6 text-muted">{{ order.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                    </button>
+                </h2>
+                <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#ordersAccordion">
+                    <div class="accordion-body p-4 bg-light">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Order Items</h5>
+                        <ul class="list-unstyled mb-0 list-group list-group-flush rounded-3">
+                        {% for item in order.items %}
+                            <li class="list-group-item bg-transparent d-flex justify-content-between align-items-start border-bottom py-3">
+                                <div class="ms-2 me-auto">
+                                    <h6 class="fw-bold text-dark mb-1">{{ item.quantity }}x {{ item.item.name }}</h6>
+                                    
+                                    {% if item.customizations %}
+                                    <ul class="list-unstyled mb-0">
+                                        {% for cust in item.customizations %}
+                                        <li class="text-muted small d-flex align-items-center py-1">
+                                            <span class="me-2">{{ cust.option.icon }}</span> 
+                                            {{ cust.option.name }} 
+                                            {% if cust.option.price_change > 0 %}
+                                            <span class="text-success ms-2 fw-medium">(+₹{{ "%.2f"|format(cust.option.price_change) }})</span>
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <span class="fw-bold text-success">₹{{ "%.2f"|format(item.price_at_order) }}</span>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                        <hr class="text-muted mt-4">
+                        <div class="d-flex justify-content-between mt-3 px-3">
+                            <strong class="fs-5 text-dark">Total Paid:</strong>
+                            <strong class="fs-5 text-success">₹{{ "%.2f"|format(order.total_amount) }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5 bg-white rounded-4 shadow-sm border p-5 mt-4">
+            <h4 class="text-muted fw-bold mb-3">You haven't placed any orders yet.</h4>
+            <a href="{{ url_for('main.index') }}" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow">Browse Restaurants</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

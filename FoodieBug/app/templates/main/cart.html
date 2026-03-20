@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row pt-4">
+    <div class="col-lg-8 mb-4">
+        <h2 class="fw-bold mb-4 text-dark d-flex align-items-center"><span class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px; font-size: 1.2rem;">🛒</span> Your Cart</h2>
+        
+        {% if cart %}
+            <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+                <div class="list-group list-group-flush">
+                {% for item in cart %}
+                    <div class="list-group-item p-4 d-flex justify-content-between align-items-start border-bottom position-relative">
+                        <div class="ms-2 me-auto">
+                            <h5 class="fw-bold text-dark mb-1">{{ item.name }}</h5>
+                            <p class="text-muted small mb-2"><i class="fw-bold">From: {{ item.restaurant_name }}</i></p>
+                            
+                            {% if item.customizations %}
+                            <ul class="list-unstyled mb-0">
+                                {% for opt in item.customizations %}
+                                <li class="text-muted small d-flex align-items-center py-1">
+                                    <span class="me-2">{{ opt.icon }}</span> 
+                                    {{ opt.name }} 
+                                    {% if opt.price_change > 0 %}
+                                    <span class="text-success ms-2 fw-medium">(+₹{{ "%.2f"|format(opt.price_change) }})</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            
+                            <div class="mt-3 d-flex align-items-center">
+                                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm border fw-bold fs-6">Qty: {{ item.quantity }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="text-end d-flex flex-column align-items-end h-100 justify-content-between">
+                            {% set item_total = (item.base_price + item.customizations|map(attribute='price_change')|sum) * item.quantity %}
+                            <span class="fw-bold fs-5 text-success mb-3">₹{{ "%.2f"|format(item_total) }}</span>
+                            
+                            <form action="{{ url_for('main.remove_from_cart', cart_item_id=item.id) }}" method="POST" class="mt-auto">
+                                <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold custom-hover shadow-sm">
+                                    Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            
+            <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary rounded-pill px-4 fw-bold shadow-sm d-inline-flex align-items-center">
+                <span class="me-2">←</span> Continue Shopping
+            </a>
+            
+        {% else %}
+            <div class="text-center py-5 bg-white rounded-4 shadow-sm border p-5 mt-4">
+                <h3 class="fw-bold text-muted mb-3">Your cart is empty</h3>
+                <p class="text-muted mb-4">Looks like you haven't added anything to your cart yet.</p>
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow">Browse Restaurants</a>
+            </div>
+        {% endif %}
+    </div>
+    
+    {% if cart %}
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-lg rounded-4 sticky-top" style="top: 100px;">
+            <div class="card-body p-4 bg-light rounded-4">
+                <h4 class="card-title fw-bold mb-4 text-dark border-bottom pb-3">Order Summary</h4>
+                
+                <div class="d-flex justify-content-between mb-3 text-muted">
+                    <span>Subtotal</span>
+                    <span class="fw-medium">₹{{ "%.2f"|format(total) }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 text-muted">
+                    <span>Delivery Fee</span>
+                    <span class="text-success fw-medium">Free</span>
+                </div>
+                
+                <hr class="my-4 text-muted">
+                
+                <div class="d-flex justify-content-between mb-4 mt-2">
+                    <strong class="fs-4 text-dark">Total</strong>
+                    <strong class="fs-4 text-success">₹{{ "%.2f"|format(total) }}</strong>
+                </div>
+                
+                <a href="{{ url_for('main.checkout') }}" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold shadow-sm py-3 transition-transform">
+                    Proceed to Checkout
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
